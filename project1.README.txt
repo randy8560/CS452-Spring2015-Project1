@@ -1,3 +1,6 @@
-name, date, description
+Randy Parisi
+3/27/15
+2d game
 
-be sure to include complete details of how to interact with your game, the scoring system, and how to win
+WASD moves the player up, down, left and right. The goal is to collect all of the green squares before the timer runs out.
+The timer is the green side bar moving upwards, once it reaches the rop you loose. 
