@@ -1,31 +1,56 @@
 <!DOCTYPE html>
-<html>
-<head>
-<script id="vertex-shader" type="x-shader/x-vertex">
-attribute vec4 vPosition;
+<!--
+	Randy Parisi
+	Project1
+	Description: 2d shape game
+-->
 
-void main()
+<html>
+
+<style>
+canvas { background:url(images/backdrop.jpg) }
+canvas { background-size : 100% auto}
+</style>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute  vec4 vPosition;
+attribute  vec4 vColor;
+
+varying vec4 fColor;
+uniform mat4 translationMatrix;
+
+void main() 
 {
-  gl_Position = vPosition;
-}
+    fColor = vColor;
+	gl_Position = translationMatrix*vPosition;
+} 
 </script>
 
 <script id="fragment-shader" type="x-shader/x-fragment">
-precision mediump float;
 
-void main()
+precision mediump float;
+   
+varying vec4 fColor;
+
+void
+main()
 {
-gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 );
+    gl_FragColor = fColor;
 }
 </script>
+
 <script type="text/javascript" src="../Common/webgl-utils.js"></script>
 <script type="text/javascript" src="../Common/initShaders.js"></script>
 <script type="text/javascript" src="../Common/MV.js"></script>
 <script type="text/javascript" src="project1.js"></script>
-</head>
+
 <body>
 <canvas id="gl-canvas" width="512" height="512">
 Oops ... your browser doesn't support the HTML5 canvas element
 </canvas>
+<h3>Collect the Green Squares</h3>
+<p id="p1">Race the clock, try to collect all of the green squares before the right side bar reaches the top.</p>
+<br/>
 </body>
 </html>
